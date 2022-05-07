@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import ButtonBase from '@mui/material/ButtonBase';
-import Divider from '@mui/material/Divider';
 import FormControl from '@mui/material/FormControl';
 import hotelStyles from '../styles/hotels.module.css';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -16,12 +9,7 @@ import HotelListing from './hotelListing';
 import { HotelListObj } from '../types/hotel-listing-types';
 import MenuItem from '@mui/material/MenuItem';
 
-const Img = styled('img')({
-  margin: 'auto',
-  display: 'block',
-  maxWidth: '100%',
-  maxHeight: '100%',
-});
+
 const decreaseSort = (a:HotelListObj, b:HotelListObj) => a.offer.displayPrice.amount > b.offer.displayPrice.amount ? -1 : 1;
 const increaseSort = (a:HotelListObj, b:HotelListObj) => a.offer.displayPrice.amount > b.offer.displayPrice.amount ? 1 : -1;
 
@@ -68,10 +56,8 @@ export default function ComplexGrid() {
       </FormControl>
       <div>
         {data.map((d) =>
-          <HotelListing hotelListing={d}/>)}
+          <HotelListing key={d.id} hotelListing={d}/>)}
       </div>
-     
-      
     </Paper>
     
   );

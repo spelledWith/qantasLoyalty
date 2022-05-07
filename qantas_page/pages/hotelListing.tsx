@@ -10,6 +10,8 @@ import Divider from '@mui/material/Divider';
 import hotelStyles from '../styles/hotels.module.css';
 import * as HTypes from '../types/hotel-listing-types';
 
+import StarWidget from './starWidget';
+
 const Img = styled('img')({
   margin: 'auto',
   display: 'block',
@@ -32,8 +34,9 @@ const HotelListing = ({hotelListing}: {hotelListing: HTypes.HotelListObj}) => {
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
               <Typography gutterBottom variant="subtitle1" component="div">
-                <div className={hotelStyles.name}>{i.property.title} 
-                  <Rating name="half-rating" defaultValue={i.property.rating.ratingValue} precision={0.5} />
+                <div className={hotelStyles.name}>
+                    {i.property.title} 
+                    <StarWidget rating={i.property.rating.ratingValue} type={i.property.rating.ratingType}/>
                 </div>
               </Typography>
               
