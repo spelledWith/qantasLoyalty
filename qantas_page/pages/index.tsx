@@ -8,6 +8,9 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Divider from '@mui/material/Divider';
 import hotelStyles from '../styles/hotels.module.css';
+import hotelResults from '../data';
+import HotelListing from './hotelListing';
+import { HotelListObj } from '../types/hotel-listing-types';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -17,6 +20,9 @@ const Img = styled('img')({
 });
 
 export default function ComplexGrid() {
+  const listItems = hotelResults.map((d) =>
+    <HotelListing hotelListing={d}/>
+  )
   return (
     <Paper
       sx={{
@@ -27,49 +33,10 @@ export default function ComplexGrid() {
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
     >
-      <Stack
-        direction="column"
-        divider={<Divider orientation="horizontal" flexItem />}
-        spacing={5}>
-        <Grid container spacing={2}>
-          <Grid item xs={3}>
-            <ButtonBase sx={{ width: 128, height: 128 }}>
-              <Img alt="complex" src="https://unsplash.it/145/125/?random" />
-              <h3 className={hotelStyles.imageover}>Exclusive Deal!</h3>
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={true} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" component="div">
-                  <div className={hotelStyles.name}>Primus 
-                    <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-                  </div>
-                </Typography>
-                
-                <Typography  variant="body2" gutterBottom component="div">
-                  <div className={hotelStyles.address}>address blah blah</div>
-                </Typography>
-                <Typography variant="body2" color="text.secondary" component="div">
-                  <div className={hotelStyles.roomType}>Deluxe Balcony Room</div>
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography sx={{ cursor: 'pointer' }} variant="body2" component="div">
-                  <div className={hotelStyles.freeCancel}>Free Cancellation</div>
-                </Typography>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1" component="div">
-                <div className={hotelStyles.totalNights}>1 night total</div>
-                <div className={hotelStyles.price}>$329</div>
-                <div className={hotelStyles.deal}>Save $30~</div>
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>         
-      </Stack>
+       <div>
+      {listItems}
+      </div>
+     
       
     </Paper>
     
