@@ -43,3 +43,15 @@
     font-size: 15px;
     color:crimson;
   }
+
+  .sortDrop {
+    float: right;
+    width: 300px;
+    padding: 200p;
+  }
+
+  .results {
+    float: left;
+    padding: 200p;
+    bottom: 0;
+  }
