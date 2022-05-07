@@ -11,14 +11,11 @@ export interface ImageObj {
     imageType: string;
 }
 
-enum RatingType {
-    "self",
-    "star",
-}
+
 
 export interface RatingObj {
     ratingValue: number;
-    ratingType: RatingType;
+    ratingType: ("self"|"star");
 }
 
 export interface PromotionObj {
