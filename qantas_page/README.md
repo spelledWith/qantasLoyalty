@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
-(this guide assumes that nodejs is installed)
+(this guide assumes that nodejs is installed, and these commands are ran from with this folder)
 To run this app locally, first
 ```bash
  npm install
