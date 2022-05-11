@@ -19,15 +19,14 @@ To run the unit tests, run
 npm run tests
 ```
 
-====================
-Compromises made in the interests of time
+
+## Compromises made in the interests of time
 - data is loaded from a static file rather than a real API/ stubs in the tests
 - some of the more basic components are missing unit tests
 - some values eg. "Sydney" and "1 night" are hardcoded - in the actual page these values would be passed to this hotels page from a search, but that logic is not implemented here.
 
-T
-===============
-Quick start resources used
+
+## Quick start resources used
 Setup MUI/NEXT
 https://dev.to/hajhosein/nextjs-mui-v5-typescript-tutorial-and-starter-3pab
 Listing CSS template
