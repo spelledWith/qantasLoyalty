@@ -4,23 +4,21 @@ import hotelStyles from '../styles/hotels.module.css';
 import * as HTypes from '../types/hotel-listing-types';
 import StarWidget from './StarWidget';
 
-const PropertyGrid = ({hotelListing}: {hotelListing: HTypes.HotelListObj}) => {
-    const i = hotelListing;
-
+const PropertyGrid = ({property, offerName}: {property: HTypes.PropertyObj, offerName: string}) => {
     return(
         <Grid item xs>
               <Typography gutterBottom variant="subtitle1" component="div">
                 <div className={hotelStyles.name}>
-                    {i.property.title} 
-                    <StarWidget key={`${i.id}-rating`} rating={i.property.rating.ratingValue} type={i.property.rating.ratingType}/>
+                    {property.title} 
+                    <StarWidget key={`${property.propertyId}-rating`} rating={property.rating.ratingValue} type={property.rating.ratingType}/>
                 </div>
               </Typography>
               
               <Typography  variant="body2" gutterBottom component="div">
-                <div className={hotelStyles.address}>{i.property.address.join(', ')}</div>
+                <div className={hotelStyles.address}>{property.address.join(', ')}</div>
               </Typography>
               <Typography variant="body2" color="text.secondary" component="div">
-                <div className={hotelStyles.roomType}>{i.offer.name}</div>
+                <div className={hotelStyles.roomType}>{offerName}</div>
               </Typography>
         </Grid>
          

@@ -10,7 +10,13 @@ import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import ContrastIcon from '@mui/icons-material/Contrast';
 
 const FULL_STARS = 5;
-
+/**
+ * StarWidget subcomponent 
+ * @param num number of icons to return
+ * @param type self(circle)/ star shaped icon
+ * @param fill  empty/half/full fill for the icon
+ * @returns array of size num of icons matching requested input type/fill
+ */
 const stars = (
     num: number,
     type: ('self' | 'star'),
@@ -19,14 +25,14 @@ const stars = (
     const icon= (key: number, type:('self' | 'star'), fill:('full' | 'empty' | 'half')) => {
         const map = {
             self: {
-                full: <CircleIcon key={`circle-${key}`} sx={{ width: 15, height: 15 }} />,
-                empty: <CircleOutlinedIcon key={`circle-${key}`} sx={{ width: 15, height: 15 }} />,
-                half: <ContrastIcon key={`circle-${key}`} sx={{ width: 15, height: 15 }} />,
+                full: <CircleIcon key={`full-circle-${key}`} sx={{ width: 15, height: 15 }} />,
+                empty: <CircleOutlinedIcon key={`empty-circle-${key}`} sx={{ width: 15, height: 15 }} />,
+                half: <ContrastIcon key={`half-circle-${key}`} sx={{ width: 15, height: 15 }} />,
             },
             star: {
-                full: <StarRateIcon key={`star-${key}`} sx={{ width: 20, height: 20 }} />,
-                empty: <StarOutlineIcon key={`star-${key}`}sx={{ width: 20, height: 20 }} />,
-                half: <StarHalfIcon key={`star-${key}`} sx={{ width: 20, height: 20 }} />,
+                full: <StarRateIcon key={`full-star-${key}`} sx={{ width: 20, height: 20 }} />,
+                empty: <StarOutlineIcon key={`empty-star-${key}`}sx={{ width: 20, height: 20 }} />,
+                half: <StarHalfIcon key={`half-star-${key}`} sx={{ width: 20, height: 20 }} />,
             }
         }
         return map[type][fill];
@@ -36,6 +42,13 @@ const stars = (
 
     return starR;
 };
+/**
+ * 
+ * @props 
+ * @rating = score out of 5, 
+ * @type: self returns circles, star returns stars  
+ * @returns rating rounded down (2.3->2, 2.7->2.5) in circles/stars
+ */
 const StarWidget = ({ rating, type }: { rating: number, type: ('self' | 'star') }) => {
 
     const roundedRating = Math.floor(rating);

@@ -27,16 +27,18 @@ const HotelListing = ({hotelListing}: {hotelListing: HTypes.HotelListObj}) => {
     const i = hotelListing;
 
     return(
-        <Grid container spacing={2}>
-            <ImageGrid hotelListing={i}/>
-            <Grid item xs={true} sm container>
+    <div data-testid="hotelListing">
+        <Grid container >
+            <ImageGrid property={i.property} promotionTitle={i.offer.promotion.title}/>
+            <Grid item sx={{ borderBottom: 1, borderTop: 1}} xs={true} sm container>
                 <Grid item xs container direction="column" spacing={2}>
-                    <PropertyGrid hotelListing={i} />
-                    <CancellationGrid hotelListing={i} />
+                    <PropertyGrid property={i.property} offerName={i.offer.name} />
+                    <CancellationGrid cancelType={i.offer.cancellationOption.cancellationType} />
                 </Grid>
-                <PriceGrid hotelListing={i} />
+                <PriceGrid offer={i.offer} />
             </Grid>
         </Grid>     
+    </div>
     )
 };
 
