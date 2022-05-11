@@ -24,6 +24,8 @@ npm run tests
 - data is loaded from a static file rather than a real API/ stubs in the tests
 - some of the more basic components are missing unit tests
 - some values eg. "Sydney" and "1 night" are hardcoded - in the actual page these values would be passed to this hotels page from a search, but that logic is not implemented here.
+- css implementation is not exact
+- hotels.module.css hsd not been split up into smaller files to match the componenet files 
 
 
 ## Quick start resources used
